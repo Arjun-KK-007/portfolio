@@ -3,6 +3,8 @@
  * Replace the placeholder content below with your own details and the whole site updates.
  */
 
+const BASE = import.meta.env.BASE_URL;
+
 export type Palette = { from: string; via: string; to: string; accent: string };
 
 export const profile = {
@@ -27,10 +29,11 @@ export const profile = {
     linkedin: 'https://www.linkedin.com/in/arjun-k-k-540171429/',
     github: 'https://github.com/Arjun-KK-007',
   },
-  resumePdf: '/assets/Resume.pdf',
+  resumePdf: `${BASE}assets/Resume.pdf`,
   portrait: {
-    src: '/assets/portrait-720.webp',
-    srcSet: '/assets/portrait-420.webp 420w, /assets/portrait-720.webp 720w, /assets/portrait-1100.webp 1100w',
+    src: `${BASE}assets/portrait-720.webp`,
+    small: `${BASE}assets/portrait-420.webp`,
+    srcSet: `${BASE}assets/portrait-420.webp 420w, ${BASE}assets/portrait-720.webp 720w, ${BASE}assets/portrait-1100.webp 1100w`,
     alt: 'Portrait of Arjun K K',
   },
   interests: ['UI/UX Design', 'Vibe Coding', 'Hackathons', 'AI Tools'],

@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { profile } from '../data/portfolio';
 import { useSmoothScroll } from '../hooks/smoothScroll';
@@ -8,16 +8,28 @@ import { SeriesMark } from './Poster';
 export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
   const ref = useRef<HTMLElement>(null);
   const { scrollTo } = useSmoothScroll();
+  const [copied, setCopied] = useState(false);
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(profile.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2200);
+    } catch {
+      /* clipboard blocked: the address is shown as selectable text */
+    }
+  };
+  const gmail = (subject?: string) =>
+    `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(profile.email)}${subject ? `&su=${encodeURIComponent(subject)}` : ''}`;
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'start 0.2'] });
   const spacing = useTransform(scrollYProgress, [0, 1], ['0.6em', '0.02em']);
   const blur = useTransform(scrollYProgress, [0, 1], ['blur(16px)', 'blur(0px)']);
   const opacity = useTransform(scrollYProgress, [0.1, 0.9], [0, 1]);
 
   const ctas = [
-    { label: "Let's Build", href: `mailto:${profile.email}?subject=${encodeURIComponent("Let's build something")}`, primary: true, cursor: 'play' },
+    { label: "Let's Build", href: gmail("Let's build something"), primary: true, cursor: 'play' },
     { label: 'LinkedIn', href: profile.links.linkedin, cursor: 'link' },
     { label: 'GitHub', href: profile.links.github, cursor: 'link' },
-    { label: 'Email', href: `mailto:${profile.email}`, cursor: 'link' },
+    { label: 'Email', href: gmail(), cursor: 'link' },
   ];
 
   return (
@@ -79,7 +91,14 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
         ))}
       </motion.div>
 
-      <div className="relative mt-16 flex flex-wrap justify-center gap-6 text-xs font-semibold tracking-[0.24em] text-smoke">
+      <p className="relative mt-6 flex flex-wrap items-center justify-center gap-3 text-sm text-mist">
+        <span className="select-all">{profile.email}</span>
+        <button type="button" onClick={copyEmail} data-cursor="link" className="rounded-full border border-white/20 px-3 py-1 text-[11px] font-semibold tracking-[0.16em] text-bone transition hover:border-bone hover:bg-white/10">
+          {copied ? 'COPIED ✓' : 'COPY EMAIL'}
+        </button>
+      </p>
+
+      <div className="relative mt-12 flex flex-wrap justify-center gap-6 text-xs font-semibold tracking-[0.24em] text-smoke">
         <button type="button" onClick={() => scrollTo(0, { offset: 0 })} className="hover:text-bone">
           ↺ WATCH AGAIN
         </button>

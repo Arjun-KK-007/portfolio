@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { skillCategories, skillEvidence, type Skill } from '../data/portfolio';
 import { EASE, SectionHeading } from './fx';
+import SkillIcon from './SkillIcon';
 
 const HUES = ['#ff3d5a', '#4cc9ff', '#46e3a8', '#ffb547', '#b98bff', '#ff8a5c', '#7ee0ff'];
 
@@ -87,7 +88,7 @@ function SkillCard({ skill, hue }: { skill: Skill; hue: string }) {
         transition={{ duration: 0.5 }}
         aria-hidden
       >
-        {skill.mono}
+        <SkillIcon name={skill.name} fallback={skill.mono} />
       </motion.span>
       <span className="relative mt-4 flex items-center gap-2 text-[15px] font-semibold text-bone">
         {skill.name}
