@@ -11,10 +11,10 @@ export const profile = {
   fullName: 'Arjun K K',
   displayName: 'Arjun K K',
   /** Big title word on the opening sequence + hero (keep it short, UPPERCASE). */
-  firstName: 'ARJUN',
+  firstName: 'ARJUN K K',
   seriesTag: 'THE SERIES',
   /** Fictional studio card shown at the very start of the opening sequence. */
-  originalLabel: 'AN ARJUN ORIGINAL',
+  originalLabel: 'AN ARJUN K K ORIGINAL',
   role: 'UI/UX Designer',
   tagline: ['UI/UX Designer', 'CSE Student', 'Vibe Coder'],
   intro:
