@@ -33,7 +33,7 @@ export const profile = {
     srcSet: '/assets/portrait-420.webp 420w, /assets/portrait-720.webp 720w, /assets/portrait-1100.webp 1100w',
     alt: 'Portrait of Arjun K K',
   },
-  interests: ['UI/UX Design', 'Vibe Coding', 'Hackathons'],
+  interests: ['UI/UX Design', 'Vibe Coding', 'Hackathons', 'AI Tools'],
 };
 
 export const education = [
@@ -99,7 +99,7 @@ export type Achievement = {
 };
 
 export const achievements: Achievement[] = [
-  { id: 'hackathon', title: 'Hackathon Runner-Up', org: 'Hackathon', detail: 'Finished as runner-up in a hackathon.', laurel: 'Runner-Up' },
+  { id: 'hacknova', title: 'Runner-Up', org: 'HackNova\'26', detail: 'Hackathon organised by Knowledge Institute of Technology — our team built a project on the topic of transport.', laurel: 'Hackathon' },
 ];
 
 export type Certification = { issuer: string; name: string; link: string };
@@ -132,11 +132,15 @@ export const skillCategories: SkillCategory[] = [
   {
     id: 'tools',
     title: 'Tools',
-    subtitle: 'Everyday workflow',
+    subtitle: 'Editors, version control & AI',
     skills: [
       { name: 'Git', mono: 'Gt' },
       { name: 'GitHub', mono: 'Gh' },
       { name: 'VS Code', mono: 'Vs' },
+      { name: 'Cursor', mono: 'Cu' },
+      { name: 'Claude', mono: 'Cl' },
+      { name: 'Codex', mono: 'Cx' },
+      { name: 'Antigravity', mono: 'Ag' },
     ],
   },
 ];
@@ -144,6 +148,10 @@ export const skillCategories: SkillCategory[] = [
 /** Shown when a skill card is hovered/tapped: where that skill appears in your work. */
 export const skillEvidence: Record<string, string[]> = {
   'Vibe coding': ['College Blood Bank'],
+  Cursor: ['Vibe coding workflow'],
+  Claude: ['Vibe coding workflow'],
+  Codex: ['Vibe coding workflow'],
+  Antigravity: ['Vibe coding workflow'],
   Git: ['College Blood Bank'],
   GitHub: ['College Blood Bank'],
 };
@@ -180,7 +188,7 @@ export const seasons: Season[] = [
     episodes: [
       { code: 'S01 E01', title: 'The Engineer', description: 'B.E. in Computer Science & Engineering, 2025–2029, with a CGPA of 8.9.', tags: ['B.E. CSE', 'CGPA 8.9'], runtime: '2025 – 2029', palette: violet },
       { code: 'S01 E02', title: 'The Coder', description: 'Learning to think in code with Python, C and C++.', tags: ['Python', 'C', 'C++'], runtime: 'Languages', palette: jade },
-      { code: 'S01 E03', title: 'The Toolkit', description: 'Version control and daily workflow with Git, GitHub and VS Code.', tags: ['Git', 'GitHub', 'VS Code'], runtime: 'Tools', palette: ocean },
+      { code: 'S01 E03', title: 'The Toolkit', description: 'Git, GitHub and VS Code, plus AI tools — Cursor, Claude, Codex and Antigravity.', tags: ['Git', 'GitHub', 'VS Code', 'Cursor', 'Claude'], runtime: 'Tools', palette: ocean },
     ],
   },
   {
@@ -191,7 +199,7 @@ export const seasons: Season[] = [
     episodes: [
       { code: 'S02 E01', title: 'The Vibe Coder', description: 'Building with Lovable and ChatGPT — from idea to a working app.', tags: ['Vibe coding', 'Lovable', 'ChatGPT'], runtime: '2026', palette: amber },
       { code: 'S02 E02', title: 'The Builder', description: 'College Blood Bank — find nearby donors, see their contact details and who has donated.', tags: ['College Blood Bank'], runtime: '2026', palette: crimson },
-      { code: 'S02 E03', title: 'The Runner-Up', description: 'Finished as hackathon runner-up.', tags: ['Hackathon'], runtime: 'Competition', palette: ocean },
+      { code: 'S02 E03', title: 'The Runner-Up', description: 'Runner-up at HackNova\'26, hosted by Knowledge Institute of Technology — a team project on transport.', tags: ['HackNova\'26', 'Transport'], runtime: 'Hackathon', palette: ocean },
     ],
   },
   {
@@ -210,9 +218,9 @@ export type TopPick = { label: string; title: string; detail: string; palette: P
 export const topPicks: TopPick[] = [
   { label: 'Primary language', title: 'Python', detail: 'With C and C++', palette: amber },
   { label: 'The flagship Original', title: 'College Blood Bank', detail: 'Connect with blood', palette: crimson },
-  { label: 'Podium finish', title: 'Hackathon', detail: 'Runner-Up', palette: ocean },
+  { label: 'Podium finish', title: 'HackNova\'26', detail: 'Runner-Up • Transport', palette: ocean },
   { label: 'Academic standing', title: 'CGPA 8.9', detail: 'B.E. CSE', palette: jade },
-  { label: 'The toolkit', title: 'Git · GitHub', detail: 'and VS Code', palette: violet },
+  { label: 'The toolkit', title: 'Cursor · Claude', detail: 'Codex, Antigravity, VS Code', palette: violet },
   { label: 'How I build', title: 'Vibe Coding', detail: 'Lovable & ChatGPT', palette: amber },
   { label: 'Current focus', title: 'UI/UX', detail: 'Clear and human experiences', palette: crimson },
 ];
@@ -222,9 +230,9 @@ export type IntroSlide = { kicker: string; title: string; lines: string[]; chips
 
 export const introSlides: IntroSlide[] = [
   { kicker: 'Education', title: 'B.E. · CSE', lines: ['Mahendra Institute of Technology', '2025 – 2029'], chips: ['CGPA 8.9'] },
-  { kicker: 'Skills', title: 'Python first.', lines: ['Python, C, C++ · Vibe coding', 'Git, GitHub, VS Code'], chips: ['Python', 'C', 'C++', 'Vibe coding', 'Git', 'GitHub'] },
+  { kicker: 'Skills', title: 'Python first.', lines: ['Python, C, C++ · Vibe coding', 'Git, GitHub, VS Code · Cursor, Claude, Codex, Antigravity'], chips: ['Python', 'C', 'C++', 'Vibe coding', 'Cursor', 'Claude'] },
   { kicker: 'Projects', title: 'The Original', lines: ['College Blood Bank — connect with blood', 'Built with Lovable & ChatGPT'] },
-  { kicker: 'Achievements', title: 'Top Moment', lines: ['Hackathon Runner-Up'] },
+  { kicker: 'Achievements', title: 'Top Moment', lines: ["Runner-Up · HackNova'26", 'Knowledge Institute of Technology · Transport'] },
   { kicker: 'Current mission', title: 'Now exploring', lines: ['UI/UX design · Vibe coding · Building more Originals'] },
 ];
 
