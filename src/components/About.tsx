@@ -5,8 +5,10 @@ import { EASE, SectionHeading, Tilt } from './fx';
 export default function About() {
   const facts = [
     { k: 'Now', v: profile.degreeShort, s: `${education[0].school} · ${education[0].score}` },
-    { k: 'Training', v: `${experience[0].role}, ${experience[0].company}`, s: experience[0].period },
-    { k: 'Primary language', v: 'Java', s: 'with Python, C, C++' },
+    experience.length > 0
+      ? { k: 'Training', v: `${experience[0].role}, ${experience[0].company}`, s: experience[0].period }
+      : { k: 'Focus', v: 'UI/UX & vibe coding', s: 'Learning by building' },
+    { k: 'Primary language', v: 'Python', s: 'with C, C++' },
     { k: 'Based in', v: profile.location, s: 'Open to opportunities' },
   ];
 

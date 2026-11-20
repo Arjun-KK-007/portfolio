@@ -39,8 +39,8 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
   const meta = [
     (education[0].period.match(/\d{4}/)?.[0] ?? '') + ' – Present',
     profile.degreeShort,
-    `${projects.length} Originals`,
-    `${certifications.length} Certifications`,
+    `${projects.length} Original${projects.length === 1 ? "" : "s"}`,
+    certifications.length > 0 ? `${certifications.length} Certifications` : `${achievements.length} Achievement${achievements.length === 1 ? '' : 's'}`,
   ];
 
   const floating = [
